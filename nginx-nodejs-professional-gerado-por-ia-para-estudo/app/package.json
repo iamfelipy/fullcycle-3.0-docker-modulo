@@ -1,0 +1,32 @@
+{
+  "name": "fullcycle-node-app",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Full Cycle Node.js application with MySQL",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "jest",
+    "lint": "eslint src/",
+    "build": "npm ci --only=production",
+    "healthcheck": "node healthcheck.js"
+  },
+  "keywords": ["fullcycle", "nodejs", "mysql", "docker"],
+  "author": "Full Cycle Developer",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0",
+    "eslint": "^8.52.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
