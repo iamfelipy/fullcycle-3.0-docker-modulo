@@ -1,0 +1,47 @@
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: nginx-proxy-desafio
+    entrypoint: ["wait-for", "app:3000", "-t", "20", "--", "docker-entrypoint.sh"]
+    ports: 
+      - "80:80"
+    depends_on:
+      - app
+    networks:
+      - node-network
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.node
+    container_name: app
+    tty: true                                              
+    entrypoint: ["wait-for", "db:3306", "-t", "20", "--", "node", "index.js"]
+    volumes:
+      - ./app:/usr/src/app
+    networks:
+      - node-network
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    volumes: 
+      - db_data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=nodedb
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge
+volumes:
+  db_data:
