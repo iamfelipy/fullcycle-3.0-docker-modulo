@@ -4,9 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile.nginx
     container_name: nginx-proxy-desafio
-    entrypoint: ["wait-for", "app:3000", "-t", "20", "--", "docker-entrypoint.sh"]
+    entrypoint: ["wait-for", "app:3000", "-t", "20", "--", "nginx", "-g", "daemon off;"]
     ports: 
-      - "80:80"
+      - "8080:80"
     depends_on:
       - app
     networks:
