@@ -9,7 +9,7 @@ Colocando em prática conhecimentos em Docker:
 - Uso de ENTRYPOINT e CMD
 - Multistage build com Alpine
 - Dockerização de aplicações
-- imagens de desenvolvimento e produção
+- otimizando imagens de desenvolvimento e produção
 
 ## Exemplos
 
