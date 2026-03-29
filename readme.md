@@ -7,9 +7,9 @@ Colocando em prática conhecimentos em Docker:
 - Configuração de network
 - Exposição de portas
 - Uso de ENTRYPOINT e CMD
-- Multistage build com Alpine
+- Multistage build (otmizando imagens para produção)
 - Dockerização de aplicações
-- otimizando imagens de desenvolvimento e produção
+- docker compose
 
 ## Exemplos
 
@@ -42,4 +42,3 @@ localhost:8080
 docker build -t felipy/goapp -f desafio-go/Dockerfile .
 docker run --rm felipy/goapp
 ```
-
