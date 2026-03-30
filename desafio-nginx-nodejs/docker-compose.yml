@@ -20,7 +20,6 @@ services:
     entrypoint: ["wait-for", "db:3306", "-t", "20", "--", "sh", "-c", "npm install && node index.js"]
     volumes:
       - ./app:/usr/src/app
-      - /usr/src/app/node_modules 
     networks:
       - node-network
     ports:
